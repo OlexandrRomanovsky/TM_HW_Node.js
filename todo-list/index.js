@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 2000;
 let todoList = require('./data');
 
 app.use(bodyParser.json());
@@ -9,8 +8,8 @@ app.use(bodyParser.json());
 app.get("/todos", getTodos);
 app.post("/todos", addTodo);
 app.delete("/todos/:id", removeTodo);
-app.patch("/todos/:id/markDone", markDone);
-app.patch("/todos/:id/markUndone", markUndone);
+app.patch("/todos/:id/done", markDone);
+app.patch("/todos/:id/undone", markUndone);
 
 function getTodos(req, res) {
   res.json(todoList);
@@ -47,6 +46,8 @@ function markUndone(req, res) {
   res.send(`Updated task id: ${id}`);
 }
 
-app.listen(PORT, function() {
+const port = process.env.PORT || 2000;
+
+app.listen(port, function() {
   console.log("Listen port", PORT);
 });
