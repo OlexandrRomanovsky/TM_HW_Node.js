@@ -20,7 +20,7 @@ app.delete("/todos/:id", removeTodo);
 app.patch("/todos/:id/done", markDone);
 app.patch("/todos/:id/undone", markUndone);
 
-;function getTodos(req, res) {
+function getTodos(req, res) {
   if (todoList.length === 0) return res.status(404).send("Data base is void");
   res.json(todoList);
 }
@@ -96,11 +96,11 @@ app.post('/api/posts', verifyToken, (req, res) => {
 app.post("/api/login", (req, res) => {
   const user = {
     id: 10,
-    name: "Tom",
+    username: "Tom",
     email: "tom@mail.com"
   }
 
-  jwt.sign({user}, "sekretkey", (err, token) => {
+  jwt.sign({user}, "secretkey", (err, token) => {
     res.json({
       token
     })
