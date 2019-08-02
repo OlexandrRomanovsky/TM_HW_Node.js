@@ -2,17 +2,17 @@ const todoList = [
   {
     id: '1',
     text: "Todo1",
-    done: true
+    done: false
   },
   {
     id: '2',
     text: "Todo2",
-    done: true
+    done: false
   },
   {
     id: '3',
     text: "Todo3",
-    done: true
+    done: false
   }
 ];
 
